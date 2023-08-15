@@ -51,7 +51,7 @@ const resolvers = {
     deleteBook: async (parent, { bookId }, context) => { 
       return User.findOneAndUpdate( 
         { _id: context.user._id },
-        { $pull: { savedBooks: { _id: bookId } } },
+        { $pull: { savedBooks: { bookId } } },
         { new: true }
       )
     }
