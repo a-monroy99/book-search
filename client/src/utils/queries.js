@@ -2,12 +2,21 @@
 import { gql } from '@apollo/client';
 
 // Important for useQuery: Each query we'd like to be able to perform gets exported out of our queries.js utility
-export const QUERY_PROFILES = gql`
-  query allProfiles {
-    profiles {
+export const GET_ME = gql`
+  query me {
+    me {
       _id
-      name
-      skills
+      username
+      email
+      savedBooks {
+        _id
+        authors
+        description
+        bookId
+        image
+        link
+        title
+      }
     }
   }
 `;
