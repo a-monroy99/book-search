@@ -10,7 +10,51 @@ const typeDefs = gql`
   }
 
   type Book {
+    bookId: String
+    authors: [String]
+    description: String
+    title: String!
+    image: String
+    link: String
+  }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
+  ##TODO create input types for all parameters
+   input AuthorInput {
+    authors: [String]
+  }
+
+   input DescriptionInput {
+    description: String!
+  }
+
+   input TitleInput {
+    title: String!
+  }
+
+   input BookIdInput {
+    bookId: String!
+  }
+
+   input ImageInput {
+    image: String
+  }
+
+   input LinkInput {
+    link: String
+  }
+
+  input SavedBooksInput {
+    authors: AuthorInput
+    description: DescriptionInput
+    title: TitleInput
+    bookId: BookIdInput
+    image: ImageInput
+    link: LinkInput
   }
 
   type Query {
@@ -20,7 +64,8 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(body: User!): User
-    
+    saveBook(input: SavedBookInput): User
+    removeBook(input: BookdIdInput): User
   }
 `;
 
