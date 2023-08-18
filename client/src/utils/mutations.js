@@ -29,7 +29,7 @@ export const ADD_USER = gql`
 
 // SAVE_BOOK will execute the saveBook mutation.
 export const SAVE_BOOK = gql`
-  mutation saveBook($input: SavedBookInput!) {
+  mutation saveBook($input: SavedBooksInput!) {
     saveBook(input: $input) {
       username
       bookCount
@@ -40,7 +40,6 @@ export const SAVE_BOOK = gql`
         image
         link
         }
-      }
     }
   }
 `;
